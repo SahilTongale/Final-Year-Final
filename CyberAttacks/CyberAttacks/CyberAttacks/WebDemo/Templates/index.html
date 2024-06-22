@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Details</title>
+    <!-- Add any CSS styles if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .details {
+            margin-top: 20px;
+        }
+        .details h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .details p {
+            margin: 0;
+            color: #666;
+        }
+        .details ul {
+            padding: 0;
+            list-style-type: none;
+        }
+        .details li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <h1>Request Details</h1>
+       <div class="details">
+           <h2>General Information</h2>
+           <p>Request Count: {{ request_count }}</p>
+           <p>Client IP: {{ client_ip }}</p>
+       </div>
+       <div class="details">
+           <h2>Site Traffic</h2>
+           <ul>
+               {% for key, value in all.items %}
+                   <li>{{ key }}: {{ value }}</li>
+               {% endfor %}
+           </ul>
+       </div>
+   </div>
+</body>
+</html>
